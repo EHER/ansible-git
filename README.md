@@ -32,3 +32,13 @@ git push production master
 ```
 
 That will push your master branch to server and then trigger the post-receive hook. The command "make deploy" will run. Your "make deploy" can do wharever you want, as install dependencies, run tests, update database, copy the project to web directory, etc.
+
+## installation
+
+```bash
+ansible-galaxy install EHER.git
+```
+or 
+```bash
+ansible-galaxy install -p roles EHER.git
+```
