@@ -35,6 +35,7 @@ That will push your master branch to server and then trigger the post-receive ho
 
 ## installation
 
+I recommend you to use [Ansible Galaxy](https://galaxy.ansible.com/intro) to install roles.
 ```bash
 ansible-galaxy install EHER.git
 ```
