@@ -64,8 +64,8 @@ galaxy_info:
   #  - 9.1
   #  - 9.2
   - name: Ubuntu
-  #  versions:
-  #  - all
+    versions:
+      - all
   #  - lucid
   #  - maverick
   #  - natty
