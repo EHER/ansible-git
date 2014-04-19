@@ -1,4 +1,4 @@
-# git
+# EHER.git
 Ansible role to create bare git repositories with hooks.
 
 ## variables
@@ -11,7 +11,7 @@ You cand use the role as you want. The basic use is add to your site.yml and set
 ```yml
 ---
 roles:
-  - role: git
+  - role: EHER.git
     eher_git_path: /home/git/queroservoluntario.git
     eher_git_hook_post_receive: "make deploy"
 ```
