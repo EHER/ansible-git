@@ -1,0 +1,21 @@
+---
+- name: ensure git is installed
+  action: apt pkg=git
+
+- name: ensure git user exists
+  action: user name=git shell=/usr/bin/git-shell home=/home/git generate_ssh_key=yes
+
+- name: ensure authorized_keys exists
+  action: copy src=files/authorized_keys dest=/home/git/.ssh/authorized_keys owner=git mode=0600
+
+- name: ensure repository directories exists
+  action: file path={{ eher_git_path }} owner=git group=git mode=0775 state=directory
+
+- name: create repositories
+  action: command chdir={{ eher_git_path }} creates={{ eher_git_path }}/HEAD git init --bare
+
+- name: ensure repositories permisions
+  action: command chdir={{ eher_git_path }} chown git.git -R .
+
+- name: ensure post-receive hooks exists
+  action: template src=hooks/post-receive.j2 dest={{ eher_git_path }}/hooks/post-receive owner=git mode=0755
